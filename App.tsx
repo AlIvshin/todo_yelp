@@ -8,33 +8,23 @@
  * @format
  */
 
-import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from "react-native";
+import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
+import {SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
 
-import {
-  Colors,
-  Header,
-} from "react-native/Libraries/NewAppScreen";
-import { RootContainer } from "./src/navigation";
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {RootContainer} from './src/navigation';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle={"dark-content"} />
+      <StatusBar barStyle={'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.root}
-        contentContainerStyle={styles.root}
-      >
+        contentContainerStyle={styles.root}>
         <NavigationContainer>
-        <RootContainer/>
+          <RootContainer />
         </NavigationContainer>
       </ScrollView>
     </SafeAreaView>
@@ -42,9 +32,10 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  root:{
+  root: {
     backgroundColor: Colors.lighter,
-    flex: 1,}
-})
+    flex: 1,
+  },
+});
 
 export default App;
