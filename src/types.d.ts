@@ -52,14 +52,14 @@ type BusinessDetails = {
   categories: Array<Category>;
   rating: number;
   photos: Array<string>;
-  price: string;
+  price?: string;
   hours: [
     {
       open: Array<WorkingHours>;
       is_open_now: boolean;
     },
   ];
-  special_hours: Array<SpecialWorkingHours>;
+  special_hours?: Array<SpecialWorkingHours>;
 };
 
 type RootNavigatorParamList = {

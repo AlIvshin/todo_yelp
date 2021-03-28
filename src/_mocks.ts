@@ -532,3 +532,79 @@ export const mockResponseBusiness: BusinessSearch = {
     },
   ],
 };
+
+export const mockDetails: BusinessDetails = {
+  id: 'QeagYN9QOuysVxaF8plhrQ',
+  alias: 'starbucks-westtunnel-amsterdam',
+  name: 'Starbucks - Westtunnel',
+  image_url:
+    'https://s3-media3.fl.yelpcdn.com/bphoto/x78X0NtrDekQaQcS4A0THw/o.jpg',
+  is_closed: false,
+  url:
+    'https://www.yelp.com/biz/starbucks-westtunnel-amsterdam?adjust_creative=3czR3J308DBNl29InROr3g&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=3czR3J308DBNl29InROr3g',
+  phone: '',
+  display_phone: '',
+  review_count: 25,
+  categories: [
+    {
+      alias: 'coffee',
+      title: 'Coffee & Tea',
+    },
+  ],
+  rating: 3.5,
+  photos: [
+    'https://s3-media3.fl.yelpcdn.com/bphoto/x78X0NtrDekQaQcS4A0THw/o.jpg',
+    'https://s3-media4.fl.yelpcdn.com/bphoto/rw4BS8Mo2XyV3AtsAyLpkA/o.jpg',
+    'https://s3-media2.fl.yelpcdn.com/bphoto/TA2QTRRixS-XuEfZ1ukITw/o.jpg',
+  ],
+  price: '€€',
+  hours: [
+    {
+      open: [
+        {
+          is_overnight: false,
+          start: '0500',
+          end: '0000',
+          day: 0,
+        },
+        {
+          is_overnight: false,
+          start: '0500',
+          end: '0000',
+          day: 1,
+        },
+        {
+          is_overnight: false,
+          start: '0500',
+          end: '0000',
+          day: 2,
+        },
+        {
+          is_overnight: true,
+          start: '0500',
+          end: '0100',
+          day: 3,
+        },
+        {
+          is_overnight: true,
+          start: '0500',
+          end: '0100',
+          day: 4,
+        },
+        {
+          is_overnight: true,
+          start: '0500',
+          end: '0100',
+          day: 5,
+        },
+        {
+          is_overnight: false,
+          start: '0500',
+          end: '0000',
+          day: 6,
+        },
+      ],
+      is_open_now: true,
+    },
+  ],
+};

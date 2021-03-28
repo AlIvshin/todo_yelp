@@ -18,6 +18,7 @@ import {
   searchRequest,
   searchSuccess,
 } from '../store/search-reducer';
+import {fonts} from '../styles';
 import {search} from '../utils/requests';
 
 export const HomeScreen = () => {
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   error: {
+    ...fonts.error,
     padding: 16,
-    color: 'red',
   },
 });
