@@ -30,7 +30,7 @@ type Business = {
   categories: Array<Category>;
   rating: number;
   coordinates: Coordinates;
-  price: string;
+  price?: string;
   phone: string;
   display_phone: string;
 };
@@ -65,4 +65,10 @@ type BusinessDetails = {
 type RootNavigatorParamList = {
   Home: undefined;
   Details: {id: string};
+};
+
+type Action<T> = {
+  type: string;
+  payload?: T;
+  error?: any;
 };
