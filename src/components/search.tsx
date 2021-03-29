@@ -1,21 +1,24 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 
 type PropTypes = {
-  onSearch: (value: string) => any;
+  onSearch: () => any;
+  onChangeText: (value: string) => any;
 };
 
-export const SearchInput = ({onSearch}: PropTypes) => {
-  const [value, setValue] = useState('');
+export const SearchInput = ({onSearch, onChangeText}: PropTypes) => {
+  const onUpdateValue = useCallback((value: string) => {
+    onChangeText(value);
+  }, []);
   return (
     <View style={styles.searchContainer}>
       <TextInput
         style={styles.searchInput}
-        onChangeText={setValue}
+        onChangeText={onUpdateValue}
         placeholder="Search"
       />
-      <Button title="Search" onPress={() => onSearch(value)} />
+      <Button title="Search" onPress={() => onSearch()} />
     </View>
   );
 };
