@@ -72,3 +72,8 @@ type Action<T> = {
   payload?: T;
   error?: any;
 };
+
+type Cache = {
+  search: Array<{query: string; value: Array<Business>}>;
+  details: Array<BusinessDetails>;
+};

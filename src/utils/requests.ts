@@ -1,5 +1,12 @@
 import {API_KEY, API_ROOT} from '../const';
+import NetInfo from '@react-native-community/netinfo';
 import {mockDetails, mockResponseBusiness} from '../_mocks';
+import {
+  getDetailsFromCache,
+  getSearchFromCache,
+  saveDetailsToCache,
+  saveSearchToCache,
+} from './cache';
 
 const headers = {
   Authorization: `Bearer ${API_KEY}`,
@@ -7,6 +14,10 @@ const headers = {
 
 // Searches business by term. Coordinates will be automatically requested inside function.
 export const search = async (term: string): Promise<Array<Business>> => {
+  const netStatus = await NetInfo.fetch();
+  if (!netStatus.isConnected) {
+    return getSearchFromCache(term);
+  }
   // TODO: remove after testing: API has limit of requests
   if (__DEV__) {
     return new Promise((res) => {
@@ -26,13 +37,19 @@ export const search = async (term: string): Promise<Array<Business>> => {
   );
   if (res.ok) {
     const response = await res.json();
-    return (response as BusinessSearch).businesses;
+    const items = (response as BusinessSearch).businesses;
+    saveSearchToCache(term, items);
+    return items;
   }
   throw new Error(`${res.status}: ${res.statusText}`);
 };
 
 // Searches business by term. Coordinates will be automatically requested inside function.
 export const fetchDetails = async (id: string): Promise<BusinessDetails> => {
+  const netStatus = await NetInfo.fetch();
+  if (!netStatus.isConnected) {
+    return getDetailsFromCache(id);
+  }
   // TODO: remove after testing: API has limit of requests
   if (__DEV__) {
     return new Promise((res) => {
@@ -47,6 +64,7 @@ export const fetchDetails = async (id: string): Promise<BusinessDetails> => {
   });
   if (res.ok) {
     const response = await res.json();
+    saveDetailsToCache(response);
     return response as BusinessDetails;
   }
   throw new Error(`${res.status}: ${res.statusText}`);

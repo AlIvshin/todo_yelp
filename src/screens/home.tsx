@@ -39,6 +39,9 @@ export const HomeScreen = () => {
     if (state.error) {
       return <Text style={styles.error}>Oops, something went wrong!</Text>;
     }
+    if (state.items.length === 0 && state.wasRequested) {
+      return <Text style={styles.noItems}>No items found</Text>;
+    }
     return state.items.map((item) => (
       <TouchableOpacity
         key={item.id}
@@ -69,6 +72,10 @@ const styles = StyleSheet.create({
   },
   error: {
     ...fonts.error,
+    padding: 16,
+  },
+  noItems: {
+    ...fonts.subtitle,
     padding: 16,
   },
 });
