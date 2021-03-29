@@ -56,6 +56,7 @@ export const DetailsScreen = () => {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             {photos.map((url) => (
               <FastImage
+                key={url}
                 style={styles.image}
                 source={{
                   uri: url,

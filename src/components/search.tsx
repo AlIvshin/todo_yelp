@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 
