@@ -63,7 +63,7 @@ type BusinessDetails = {
 };
 
 type RootNavigatorParamList = {
-  Home: undefined;
+  RestaurantList: undefined;
   Details: {id: string};
 };
 

@@ -22,7 +22,7 @@ import {
 import {fonts} from '../styles';
 import {search} from '../utils/requests';
 
-export const HomeScreen = () => {
+export const RestaurantListScreen = () => {
   const [state, dispatch] = useReducer(searchReducer, searchInitialState);
   const navigation = useNavigation();
   const [query, setQuery] = useState('');

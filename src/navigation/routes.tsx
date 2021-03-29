@@ -1,4 +1,4 @@
 export const ROUTES = {
-  Home: 'Home' as 'Home',
+  RestaurantList: 'RestaurantList' as 'RestaurantList',
   Details: 'Details' as 'Details',
 };
