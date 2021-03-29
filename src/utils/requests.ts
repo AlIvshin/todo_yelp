@@ -1,6 +1,5 @@
 import {API_KEY, API_ROOT} from '../const';
 import NetInfo from '@react-native-community/netinfo';
-import {mockDetails, mockResponseBusiness} from '../_mocks';
 import {
   getDetailsFromCache,
   getSearchFromCache,
@@ -17,14 +16,6 @@ export const search = async (term: string): Promise<Array<Business>> => {
   const netStatus = await NetInfo.fetch();
   if (!netStatus.isConnected) {
     return getSearchFromCache(term);
-  }
-  // TODO: remove after testing: API has limit of requests
-  if (__DEV__) {
-    return new Promise((res) => {
-      setTimeout(() => {
-        res(mockResponseBusiness.businesses);
-      }, 1000);
-    });
   }
   // TODO: get location from RN API. Currenly use some mock location.
   const latitude = 52.377956;
@@ -49,14 +40,6 @@ export const fetchDetails = async (id: string): Promise<BusinessDetails> => {
   const netStatus = await NetInfo.fetch();
   if (!netStatus.isConnected) {
     return getDetailsFromCache(id);
-  }
-  // TODO: remove after testing: API has limit of requests
-  if (__DEV__) {
-    return new Promise((res) => {
-      setTimeout(() => {
-        res(mockDetails);
-      }, 1000);
-    });
   }
   // TODO: get location from RN API. Currenly use some mock location.
   const res = await fetch(`${API_ROOT}/${id}`, {

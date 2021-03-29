@@ -1,5 +1,6 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import FastImage from 'react-native-fast-image';
 import {fonts} from '../styles';
 
 type PropTypes = {
@@ -9,7 +10,13 @@ type PropTypes = {
 export const BusinessItem = ({business}: PropTypes) => {
   return (
     <View style={styles.root}>
-      <Image style={styles.image} source={{uri: business.image_url}} />
+      <FastImage
+        style={styles.image}
+        source={{
+          uri: business.image_url,
+        }}
+        resizeMode={FastImage.resizeMode.contain}
+      />
       <View style={styles.description}>
         <Text style={styles.name}>{business.name}</Text>
         <Text style={styles.info}>Rating: {business.rating}</Text>

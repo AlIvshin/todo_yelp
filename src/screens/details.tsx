@@ -2,12 +2,12 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import React, {useEffect, useReducer} from 'react';
 import {
   ActivityIndicator,
-  Image,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import {
   detailsFailure,
   detailsInitialState,
@@ -55,7 +55,13 @@ export const DetailsScreen = () => {
         <View style={styles.photos}>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             {photos.map((url) => (
-              <Image key={url} style={styles.image} source={{uri: url}} />
+              <FastImage
+                style={styles.image}
+                source={{
+                  uri: url,
+                }}
+                resizeMode={FastImage.resizeMode.contain}
+              />
             ))}
           </ScrollView>
         </View>
